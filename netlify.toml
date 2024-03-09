@@ -1,0 +1,3 @@
+[build]
+    publish = "build/"
+    command = "pipenv run python index.py"

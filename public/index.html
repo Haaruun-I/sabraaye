@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="libs/shikwasa/styles.css">
+    <link rel="stylesheet" href="libs/picnic.css">
+    <style>
+
+        body {
+            background-color: #25283D;
+        }
+        main {
+            width: max(50vw, min(600px, 90vw));
+            margin: auto;
+            margin-top: 10vh;
+        }
+
+        .card {
+            border-color: #6F8F66;
+            border-width: .5rem;
+            background-color: #EBEBEB;
+        }
+        h1 {
+            font-size: 3rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-left: 1rem;
+        }
+
+        .shk {
+            box-shadow: 0px 10px 50px 18px rgba(58,74,63,0.73),
+                        0px 10px 14px -7px rgba(58,74,63,0.8) inset;
+        }
+    </style>
+
+    <script src="libs/shikwasa/main.js"></script>
+    <script src="libs/podcastParser.js"></script>
+    
+
+    <script src="libs/alpine.js" defer></script>
+    <script src="/main.js" defer></script>
+
+    <title>Sabraye's Tafsiir Afsomali Player</title>
+</head>
+<body>
+    <main x-data="model">
+        <template x-for="show in showList">
+            <details class="card">
+                <summary><h1 x-text="show.title"></h1></summary>
+                <template x-for="episode in show.episodeList">
+                        <h2 @click="changePlaying(episode)"  x-text="episode.title" class="stack"></h2>
+                </template>
+            </details>
+        </template>
+
+    </main>
+    <footer class="shkContainer"></footer>
+</html>
